@@ -70,7 +70,8 @@
     <i-row>
       <i-table border stripe :row-class-name="rowClassName" :columns="columns1" :data="data1">
         <template slot-scope="{ row }" slot="name">
-          <a>{{ row.name }}</a>
+          <router-link :to="{ name: 'user-detail', params: { id: 1 } }">{{ row.name }}</router-link>
+          <!--<a :href="row.name">{{ row.name }}</a>-->
         </template>
         <template slot-scope="{ row, index }" slot="action">
           <i-dropdown trigger="click">
@@ -107,7 +108,8 @@
         value4: '',
         actions: [
           {
-            'title': '创建用户'
+            'title': '创建用户',
+            'to': { 'name': 'user-create' }
           },
           {
             'title': '批量导入'
